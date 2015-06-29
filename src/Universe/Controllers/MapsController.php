@@ -2,6 +2,6 @@
 
 class MapsController extends UniverseController {
 	public function index() {
-		echo 'Hello Universe\Maps';
+		echo 'Hello Universe\Maps!';
 	}
 }
