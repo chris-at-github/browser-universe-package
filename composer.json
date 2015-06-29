@@ -1,0 +1,21 @@
+{
+	"name": "qinx/universe",
+	"description": "simple x4 browser game",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Christian Pschorr",
+			"email": "pschorr.christian@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=5.4.0",
+		"illuminate/support": "~5.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"Universe\\": "src/Universe/"
+		}
+	},
+	"minimum-stability": "dev"
+}
