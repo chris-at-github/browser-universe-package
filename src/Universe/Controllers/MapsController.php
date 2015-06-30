@@ -2,6 +2,6 @@
 
 class MapsController extends UniverseController {
 	public function index() {
-		echo 'Hello Universe\Maps!';
+		return \View::make('Universe::Maps.Index');
 	}
 }

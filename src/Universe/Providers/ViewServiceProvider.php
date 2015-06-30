@@ -16,7 +16,7 @@ class ViewServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function boot() {
-		$this->loadViewsFrom(__DIR__ . '/../Views', 'universe');
+		$this->loadViewsFrom(__DIR__ . '/../Views', 'Universe');
 	}
 
 	/**

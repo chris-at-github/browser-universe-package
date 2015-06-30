@@ -8,7 +8,7 @@ class ConfigServiceProvider extends \Illuminate\Support\ServiceProvider {
 	 * @return void
 	 */
 	public function boot() {
-		$this->mergeConfigFrom(__DIR__ . '/../Config/universe.php', 'cms');
+		$this->mergeConfigFrom(__DIR__ . '/../Config/universe.php', 'universe');
 	}
 
 	/**
