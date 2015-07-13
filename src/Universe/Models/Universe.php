@@ -1,6 +1,6 @@
 <?php namespace Universe\Models;
 
-class Cms extends \Illuminate\Database\Eloquent\Model {
+class Universe extends \Illuminate\Database\Eloquent\Model {
 
 	/**
 	 * rules for validation before saving the model
@@ -17,13 +17,20 @@ class Cms extends \Illuminate\Database\Eloquent\Model {
 	protected $errors = false;
 
 	/**
+	 * properties which can not fill over mass assignment
+	 *
+	 * @var array $guarded
+	 */
+	protected $guarded = array();
+
+	/**
 	 * store an mass assignment array to the model properties. if validator rules are defined, the
 	 * properties will be checked before saving them to database
 	 *
 	 * @param array $properties
 	 * @return boolean
 	 */
-	public function store($properties) {
+	public function store($properties = []) {
 		if(empty($this->rules) === false) {
 			$validator = \Validator::make($properties, $this->rules);
 

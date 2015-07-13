@@ -2,11 +2,13 @@
 
 class GameController extends UniverseController {
 	public function index() {
-		return \View::make('Universe::Game.Index')
-			->with('game', null);
+		return \View::make('Universe::Game.Index');
 	}
 
 	public function create() {
-		dd('Game\Create');
+		$game = \App::make('\Universe\Models\Game');
+		$game->store();
+
+		return \Redirect::route('universe.index');
 	}
 }

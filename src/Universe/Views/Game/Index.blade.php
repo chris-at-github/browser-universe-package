@@ -5,9 +5,9 @@
 		<div class="container">
 			<header>{{Lang::get('universe::game.create.header')}}</header>
 
-			{{Form::open(array('route' => 'game.create'))}}
-
-			{{Form::close()}}
+			{!! Form::open(array('route' => 'game.create')) !!}
+				<button type="submit" class="button">{{Lang::get('universe::application.action.create')}}</button>
+			{!! Form::close() !!}
 		</div>
 	</div>
 </div>
