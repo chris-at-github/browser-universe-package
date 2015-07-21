@@ -15,7 +15,7 @@ class GameRepository extends UniverseRepository {
 			'name' => 'Game A0',
 			'turn' => 3
 		]);
-		$this->collection->put('a0', $game);
+		$this->collection->put('GAME_A0', $game);
 
 		$game = \App::make('\Universe\Models\Game');
 		$game->fill([
@@ -23,7 +23,7 @@ class GameRepository extends UniverseRepository {
 			'name' => 'Game B1',
 			'turn' => 7
 		]);
-		$this->collection->put('b1', $game);
+		$this->collection->put('GAME_B1', $game);
 	}
 
 	/**
