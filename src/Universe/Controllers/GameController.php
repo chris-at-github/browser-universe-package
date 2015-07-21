@@ -2,7 +2,8 @@
 
 class GameController extends UniverseController {
 	public function index() {
-		return \View::make('Universe::Game.Index');
+		return \View::make('Universe::Game.Index')
+			->with('games', \App::make('\Universe\Repositories\GameRepository')->findAll());
 	}
 
 	public function create() {
