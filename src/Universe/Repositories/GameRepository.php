@@ -8,6 +8,22 @@ class GameRepository extends UniverseRepository {
 	 */
 	public function __construct() {
 		parent::__construct(\App::make('\Universe\Models\Game'));
+
+		$game = \App::make('\Universe\Models\Game');
+		$game->fill([
+			'id'   => 1,
+			'name' => 'Game A0',
+			'turn' => 3
+		]);
+		$this->collection->put('a0', $game);
+
+		$game = \App::make('\Universe\Models\Game');
+		$game->fill([
+			'id'   => 2,
+			'name' => 'Game B1',
+			'turn' => 7
+		]);
+		$this->collection->put('b1', $game);
 	}
 
 	/**
@@ -17,24 +33,6 @@ class GameRepository extends UniverseRepository {
 	 * @return \Illuminate\Database\Eloquent\Collection
 	 */
 	public function findAll($columns = ['*']) {
-		$games = \Illuminate\Support\Collection::make();
-
-		$game = \App::make('\Universe\Models\Game');
-		$game->fill([
-			'id'		=> 1,
-			'name' 	=> 'Game A0',
-			'turn'	=> 3
-		]);
-		$games->put('a0', $game);
-
-		$game = \App::make('\Universe\Models\Game');
-		$game->fill([
-			'id' 		=> 2,
-			'name' 	=> 'Game B1',
-			'turn' 	=> 7
-		]);
-		$games->put('b1', $game);
-
-		return $games;
+		return $this->collection;
 	}
 }

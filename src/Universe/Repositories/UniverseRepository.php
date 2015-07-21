@@ -10,6 +10,13 @@ class UniverseRepository {
 	protected $model;
 
 	/**
+	 * sample data collection for this repository
+	 *
+	 * @var \Illuminate\Support\Collection $collection
+	 */
+	protected $collection;
+
+	/**
 	 * constructor for UniverseRepository
 	 *
 	 * @param \Illuminate\Database\Eloquent\Model $model
@@ -17,6 +24,10 @@ class UniverseRepository {
 	public function __construct($model = null) {
 		if($model !== null) {
 			$this->model = $model;
+		}
+
+		if(($this->collection instanceof \Illuminate\Support\Collection) === false) {
+			$this->collection = \Illuminate\Support\Collection::make();
 		}
 	}
 
