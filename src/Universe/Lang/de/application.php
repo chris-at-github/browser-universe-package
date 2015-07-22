@@ -4,4 +4,6 @@ return [
 		'create'	=> 'Erstellen',
 		'load'		=> 'Laden',
 	],
+
+	'map'	=> 'Karte'
 ];
