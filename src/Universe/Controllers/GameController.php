@@ -12,4 +12,15 @@ class GameController extends UniverseController {
 
 		return \Redirect::route('universe.index');
 	}
+
+	public function play(\Illuminate\Http\Request $request, $id) {
+		$request->session()->put('game.id', $id);
+
+		$game = \App::make('\Universe\Repositories\GameRepository')->findBy([
+			'id' => $id
+		]);
+
+		return \View::make('Universe::Game.Play')
+			->with('game', $game);
+	}
 }

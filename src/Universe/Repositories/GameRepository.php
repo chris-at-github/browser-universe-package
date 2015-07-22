@@ -22,7 +22,8 @@ class GameRepository extends UniverseRepository {
 		$game->fill([
 			'id'   => 2,
 			'name' => 'Game B1',
-			'turn' => 7
+			'turn' => 7,
+			'map'  => 'MAP_A1'
 		]);
 		$this->collection->put('GAME_B1', $game);
 	}
@@ -35,5 +36,22 @@ class GameRepository extends UniverseRepository {
 	 */
 	public function findAll($columns = ['*']) {
 		return $this->collection;
+	}
+
+	/**
+	 * find one model
+	 *
+	 * @param array $options
+	 * @param  array $columns
+	 * @return \Illuminate\Database\Eloquent\Model
+	 */
+	public function findBy($options = [], $columns = ['*']) {
+		$map = null;
+
+		if(isset($options['id']) === true) {
+			$map = $this->collection->where('id', (int) $options['id'])->first();
+		}
+
+		return $map;
 	}
 }
