@@ -3,10 +3,10 @@
 class MapsRepository extends UniverseRepository {
 
 	/**
-	 * constructor for GameRepository
+	 * constructor for MapsRepository
 	 *
 	 */
-	public function __construct($map) {
+	public function __construct() {
 		parent::__construct(\App::make('\Universe\Models\Maps'));
 
 		$map = \App::make('\Universe\Models\Maps');
@@ -25,5 +25,22 @@ class MapsRepository extends UniverseRepository {
 	 */
 	public function findAll($columns = ['*']) {
 		return $this->collection;
+	}
+
+	/**
+	 * find one model
+	 *
+	 * @param array $options
+	 * @param  array $columns
+	 * @return \Illuminate\Database\Eloquent\Model
+	 */
+	public function findBy($options = [], $columns = ['*']) {
+		$map = null;
+
+		if(isset($options['hid']) === true && $this->collection->has($options['hid']) === true) {
+			$map = $this->collection->get($options['hid']);
+		}
+
+		return $map;
 	}
 }
