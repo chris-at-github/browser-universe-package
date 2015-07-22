@@ -6,6 +6,11 @@
 			<dl class="dl-inline">
 				<dt>{{Lang::get('universe::game.turn')}}:</dt>
 				<dd>{{$game->turn}}</dd>
+
+				@if(isset($game->map) === true)
+					<dt>{{Lang::get('universe::application.map')}}:</dt>
+					<dd>{{$game->map->name}}</dd>
+				@endif
 			</dl>
 
 			<ul class="list-actions">
