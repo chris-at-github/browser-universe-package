@@ -13,7 +13,8 @@ class GameRepository extends UniverseRepository {
 		$game->fill([
 			'id'   => 1,
 			'name' => 'Game A0',
-			'turn' => 3
+			'turn' => 3,
+			'map'  => 'MAP_A1'
 		]);
 		$this->collection->put('GAME_A0', $game);
 
