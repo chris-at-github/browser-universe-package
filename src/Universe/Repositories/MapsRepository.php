@@ -11,36 +11,12 @@ class MapsRepository extends UniverseRepository {
 
 		$map = \App::make('\Universe\Models\Maps');
 		$map->fill([
-			'id'   => 1,
-			'name' => 'Map A1'
+			'id'      => 1,
+			'name'    => 'Map A1',
+			'width'   => 3,
+			'height'  => 3,
+			'planets' => ['PLANET_1_2'],
 		]);
-		$this->collection->put('MAP_A1', $map);
-	}
-
-	/**
-	 * Get all of the models from the database
-	 *
-	 * @param array $columns
-	 * @return \Illuminate\Database\Eloquent\Collection
-	 */
-	public function findAll($columns = ['*']) {
-		return $this->collection;
-	}
-
-	/**
-	 * find one model
-	 *
-	 * @param array $options
-	 * @param  array $columns
-	 * @return \Illuminate\Database\Eloquent\Model
-	 */
-	public function findBy($options = [], $columns = ['*']) {
-		$map = null;
-
-		if(isset($options['hid']) === true && $this->collection->has($options['hid']) === true) {
-			$map = $this->collection->get($options['hid']);
-		}
-
-		return $map;
+		$this->fixtures->put('MAP_A1', $map);
 	}
 }

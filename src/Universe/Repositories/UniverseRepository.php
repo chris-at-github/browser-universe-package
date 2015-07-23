@@ -12,9 +12,9 @@ class UniverseRepository {
 	/**
 	 * sample data collection for this repository
 	 *
-	 * @var \Illuminate\Support\Collection $collection
+	 * @var \Illuminate\Support\Collection $fixtures
 	 */
-	protected $collection;
+	protected $fixtures;
 
 	/**
 	 * constructor for UniverseRepository
@@ -26,8 +26,8 @@ class UniverseRepository {
 			$this->model = $model;
 		}
 
-		if(($this->collection instanceof \Illuminate\Support\Collection) === false) {
-			$this->collection = \Illuminate\Support\Collection::make();
+		if(($this->fixtures instanceof \Illuminate\Support\Collection) === false) {
+			$this->fixtures = \Illuminate\Support\Collection::make();
 		}
 	}
 
@@ -59,13 +59,25 @@ class UniverseRepository {
 	 * @return \Illuminate\Database\Eloquent\Model
 	 */
 	public function findBy($options = [], $columns = ['*']) {
-		$model = $this->model();
+		$model = null;
 
 		if(isset($options['id']) === true) {
-			$model->where('id', '=', $options['id']);
+			$model = $this->fixtures->where('id', (int)$options['id'])->first();
 		}
 
-		return $model->take(1)->get();
+		if(isset($options['hid']) === true && $this->fixtures->has($options['hid']) === true) {
+			$model = $this->fixtures->get($options['hid']);
+		}
+
+		return $model;
+
+//		$model = $this->model();
+//
+//		if(isset($options['id']) === true) {
+//			$model->where('id', '=', $options['id']);
+//		}
+//
+//		return $model->take(1)->get();
 	}
 
 	/**
@@ -75,7 +87,8 @@ class UniverseRepository {
 	 * @return \Illuminate\Database\Eloquent\Collection
 	 */
 	public function findAll($columns = ['*']) {
-		return $this->model->all();
+		return $this->fixtures;
+//		return $this->model->all();
 	}
 
 	/**
@@ -86,16 +99,28 @@ class UniverseRepository {
 	 * @return \Illuminate\Database\Eloquent\Collection
 	 */
 	public function findAllBy($options = [], $columns = ['*']) {
-		$model = $this->model();
+		$collection = \Illuminate\Support\Collection::make();
 
-		if(isset($options['id']) === true) {
-			if(gettype($options['id']) !== 'array') {
-				$options['id'] = [$options['id']];
-			}
-
-			$model->whereIn('id', $options['id']);
+		if(isset($options['hid']) === true) {
+			$this->fixtures->map(function($item, $key) use ($collection, $options) {
+				if(in_array($key, $options['hid']) === true) {
+					$collection->put($key, $item);
+				}
+			});
 		}
 
-		return $model->get();
+		return $collection;
+
+//		$model = $this->model();
+//
+//		if(isset($options['id']) === true) {
+//			if(gettype($options['id']) !== 'array') {
+//				$options['id'] = [$options['id']];
+//			}
+//
+//			$model->whereIn('id', $options['id']);
+//		}
+//
+//		return $model->get();
 	}
 }

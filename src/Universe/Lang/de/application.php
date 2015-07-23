@@ -3,7 +3,10 @@ return [
 	'action' => [
 		'create'	=> 'Erstellen',
 		'load'		=> 'Laden',
+		'reset'		=> 'Zurücksetzen',
 	],
 
-	'map'	=> 'Karte'
+	'map'	=> 'Karte',
+	'planet' => 'Planet',
+	'planets'	=> 'Planeten',
 ];
