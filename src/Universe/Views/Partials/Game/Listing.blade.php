@@ -1,4 +1,4 @@
-<ul class="list-objects">
+<ul class="list-object">
 	@foreach($games as $game)
 		<li>
 			<header>{{$game->name}}</header>

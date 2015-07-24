@@ -6,7 +6,9 @@ return [
 		'reset'		=> 'Zurücksetzen',
 	],
 
-	'map'	=> 'Karte',
-	'planet' => 'Planet',
-	'planets'	=> 'Planeten',
+	'x'       => 'X',
+	'y'       => 'Y',
+	'map'     => 'Karte',
+	'planet'  => 'Planet',
+	'planets' => 'Planeten',
 ];

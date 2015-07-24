@@ -22,9 +22,12 @@
 	</div>
 </fieldset>
 
-<fieldset class="container">
-	<legend>{{Lang::get('universe::application.planets')}}</legend>
-	{{dd($game->map->planets)}}
-</fieldset>
+@if(isset($game->map->planets) === true)
+	<fieldset class="container">
+		<legend>{{Lang::get('universe::application.planets')}}</legend>
+
+		@include('Universe::Partials.Planet.Listing', ['planets' => $game->map->planets])
+	</fieldset>
+@endif
 
 @include('Universe::Footer')
