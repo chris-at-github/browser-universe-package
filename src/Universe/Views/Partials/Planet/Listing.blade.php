@@ -1,4 +1,4 @@
-<ul class="list-object list-object-selectable">
+<ul class="list-object list-object-selectable" id="planet-listing">
 	@foreach($planets as $planet)
 		<li>
 			<label class="list-object-selectable-checkbox">
