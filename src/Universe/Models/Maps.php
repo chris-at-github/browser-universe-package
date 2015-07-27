@@ -20,8 +20,19 @@ class Maps extends Universe {
 	 * @return \Illuminate\Support\Collection
 	 */
 	public function getPlanetsAttribute($hid) {
-		return \App::make('\Universe\Repositories\PlanetRepository')->findAllBy([
+		$active		= \Illuminate\Support\Collection::make(session()->get('active.planets', []));
+		$planets	= \App::make('\Universe\Repositories\PlanetRepository')->findAllBy([
 			'hid' => $hid
 		]);
+
+		$planets->transform(function($item) use($active) {
+			if($active->contains($item->id) === true) {
+				$item->active = true;
+			}
+
+			return $item;
+		});
+
+		return $planets;
 	}
 }

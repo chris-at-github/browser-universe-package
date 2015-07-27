@@ -2,7 +2,7 @@
 	@foreach($planets as $planet)
 		<li>
 			<label class="list-object-selectable-checkbox">
-				<input type="checkbox" id="planet-{{$planet->id}}" name="planet[]" value="planet-{{$planet->id}}">
+				<input type="checkbox" id="planet-{{$planet->id}}" name="planet[]" value="{{$planet->id}}" @if($planet->active === true) checked="checked" @endif>
 			</label>
 
 			<header>{{$planet->name}}</header>
@@ -15,11 +15,11 @@
 				<dd>{{$planet->y}}</dd>
 			</dl>
 
-			<ul class="list-actions">
-				<li>
-					<a href="{{route('game.play', ['game' => $game->id])}}">{{Lang::get('universe::application.action.load')}}</a>
-				</li>
-			</ul>
+			{{--<ul class="list-actions">--}}
+				{{--<li>--}}
+					{{--<a href="{{route('game.play', ['game' => $game->id])}}">{{Lang::get('universe::application.action.load')}}</a>--}}
+				{{--</li>--}}
+			{{--</ul>--}}
 		</li>
 	@endforeach
 </ul>

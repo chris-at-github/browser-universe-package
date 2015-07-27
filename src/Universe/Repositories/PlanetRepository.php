@@ -20,7 +20,7 @@ class PlanetRepository extends UniverseRepository {
 
 		$planet = \App::make('\Universe\Models\Planet');
 		$planet->fill([
-			'id'   => 1,
+			'id'   => 2,
 			'name' => 'Planet 3x1',
 			'x'    => 3,
 			'y'    => 1

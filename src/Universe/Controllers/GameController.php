@@ -13,14 +13,24 @@ class GameController extends UniverseController {
 		return \Redirect::route('universe.index');
 	}
 
-	public function play(\Illuminate\Http\Request $request, $id) {
+	public function playground(\Illuminate\Http\Request $request, $id) {
 		$request->session()->put('game.id', $id);
 
-		$game = \App::make('\Universe\Repositories\GameRepository')->findBy([
+		$active	= $request->session()->get('active', []);
+		$game 	= \App::make('\Universe\Repositories\GameRepository')->findBy([
 			'id' => $id
 		]);
 
-		return \View::make('Universe::Game.Play')
-			->with('game', $game);
+		$planets = null;
+		if(isset($active['planets']) === true && empty($active['planets']) === false) {
+			$planets = \App::make('\Universe\Repositories\PlanetRepository')->findAllBy([
+				'id' => $active['planets']
+			]);
+		}
+
+
+		return \View::make('Universe::Game.Playground')
+			->with('game', $game)
+			->with('planets', $planets);
 	}
 }

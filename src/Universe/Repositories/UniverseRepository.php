@@ -109,6 +109,14 @@ class UniverseRepository {
 			});
 		}
 
+		if(isset($options['id']) === true) {
+			$this->fixtures->map(function ($item, $key) use ($collection, $options) {
+				if(in_array($item->id, $options['id']) === true) {
+						$collection->put($key, $item);
+				}
+			});
+		}
+
 		return $collection;
 
 //		$model = $this->model();
