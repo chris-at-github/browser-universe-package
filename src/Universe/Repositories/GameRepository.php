@@ -11,10 +11,12 @@ class GameRepository extends UniverseRepository {
 
 		$game = \App::make('\Universe\Models\Game');
 		$game->fill([
-			'id'   => 1,
-			'name' => 'Game A0',
-			'turn' => 3,
-			'map'  => 'MAP_A1'
+			'id'      => 1,
+			'name'    => 'Game A0',
+			'turn'    => 3,
+			'map'     => 'MAP_A1',
+			'planets' => ['PLANET_1_2', 'PLANET_3_1'],
+			'ships'   => ['SHIP_A1']
 		]);
 		$this->fixtures->put('GAME_A0', $game);
 

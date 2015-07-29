@@ -1,15 +1,15 @@
 <?php namespace Universe\Models;
 
 /**
- * Class Map
+ * Class Ship
  * @package Universe\Models
  */
-class Maps extends Universe {
+class Ship extends Universe {
 
 	/**
 	 * database table
 	 *
 	 * @var string
 	 */
-	protected $table = 'maps';
+	protected $table = 'ships';
 }

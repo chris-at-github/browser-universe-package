@@ -28,9 +28,16 @@ class GameController extends UniverseController {
 			]);
 		}
 
+		$ships = null;
+		if(isset($active['ships']) === true && empty($active['ships']) === false) {
+			$ships = \App::make('\Universe\Repositories\ShipRepository')->findAllBy([
+				'id' => $active['ships']
+			]);
+		}
 
 		return \View::make('Universe::Game.Playground')
 			->with('game', $game)
-			->with('planets', $planets);
+			->with('planets', $planets)
+			->with('ships', $ships);
 	}
 }

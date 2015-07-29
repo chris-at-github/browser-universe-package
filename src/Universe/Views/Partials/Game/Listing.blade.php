@@ -14,7 +14,7 @@
 			</dl>
 
 			<ul class="list-actions">
-				<li><a href="{{route('game.play', ['game' => $game->id])}}">{{Lang::get('universe::application.action.load')}}</a></li>
+				<li><a href="{{route('game.playground', ['game' => $game->id])}}">{{Lang::get('universe::application.action.load')}}</a></li>
 			</ul>
 		</li>
 	@endforeach

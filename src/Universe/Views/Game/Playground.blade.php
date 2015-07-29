@@ -24,16 +24,39 @@
 			</div>
 		</fieldset>
 
-		@if(isset($game->map->planets) === true)
+		@if(isset($game->planets) === true)
 			<fieldset class="container">
 				<legend>{{Lang::get('universe::application.planets')}}</legend>
 
-				@include('Universe::Partials.Planet.Listing', ['planets' => $game->map->planets])
+				@include('Universe::Partials.Planet.Listing', ['planets' => $game->planets])
+			</fieldset>
+		@endif
+
+		@if(isset($game->ships) === true)
+			<fieldset class="container">
+				<legend>{{Lang::get('universe::application.ships')}}</legend>
+
+				@include('Universe::Partials.Ship.Listing', ['ships' => $game->ships])
 			</fieldset>
 		@endif
 	</div>
+
 	<div class="col-xs-12 col-sm-4">
-		{{dd($planets)}}
+		@if(isset($planets) === true)
+			<div class="container">
+				@if($planets->count() === 1)
+					@include('Universe::Partials.Planet.Properties', ['planet' => $planets->first()])
+				@endif
+			</div>
+		@endif
+
+		@if(isset($ships) === true)
+			<div class="container">
+				@if($ships->count() === 1)
+					@include('Universe::Partials.Ship.Properties', ['ship' => $ships->first()])
+				@endif
+			</div>
+		@endif
 	</div>
 </div>
 

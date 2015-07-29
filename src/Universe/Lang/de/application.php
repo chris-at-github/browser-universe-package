@@ -11,4 +11,6 @@ return [
 	'map'     => 'Karte',
 	'planet'  => 'Planet',
 	'planets' => 'Planeten',
+	'ship'    => 'Schiff',
+	'ships'   => 'Schiffe',
 ];

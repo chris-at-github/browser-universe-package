@@ -14,8 +14,7 @@ class MapsRepository extends UniverseRepository {
 			'id'      => 1,
 			'name'    => 'Map A1',
 			'width'   => 3,
-			'height'  => 3,
-			'planets' => ['PLANET_1_2'],
+			'height'  => 3
 		]);
 		$this->fixtures->put('MAP_A1', $map);
 	}
