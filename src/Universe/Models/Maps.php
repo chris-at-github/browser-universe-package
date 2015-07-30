@@ -12,4 +12,23 @@ class Maps extends Universe {
 	 * @var string
 	 */
 	protected $table = 'maps';
+
+	/**
+	 * Calculate the width in pixel
+	 *
+	 * @return int
+	 */
+	public function getCalculatedWidth() {
+//		\Config::get('universe.map.gutter')
+		return 100;
+	}
+
+	/**
+	 * Calculate the height in pixel
+	 *
+	 * @return int
+	 */
+	public function getCalculatedHeight() {
+		return 100;
+	}
 }

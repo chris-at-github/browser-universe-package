@@ -1,9 +1,6 @@
 <?php
 return [
-	'maps' => [
-		'size' => [
-			'width' => 5,
-			'height' => 5,
-		]
+	'map' => [
+		'gutter' => 10,
 	]
 ];

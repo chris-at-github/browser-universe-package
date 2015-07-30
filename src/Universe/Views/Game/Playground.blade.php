@@ -39,6 +39,10 @@
 				@include('Universe::Partials.Ship.Listing', ['ships' => $game->ships])
 			</fieldset>
 		@endif
+
+		<div class="container">
+			@include('Universe::Partials.Game.Map', ['map' => $game->map])
+		</div>
 	</div>
 
 	<div class="col-xs-12 col-sm-4">
