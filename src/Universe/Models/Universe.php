@@ -24,6 +24,25 @@ class Universe extends \Illuminate\Database\Eloquent\Model {
 	protected $guarded = array();
 
 	/**
+	 * calcuate actions
+	 *
+	 * @var \Illuminate\Database\Eloquent\Collection $actions
+	 */
+	protected $actions;
+
+	/**
+	 * Create a new Eloquent model instance.
+	 *
+	 * @param  array $attributes
+	 * @return void
+	 */
+	public function __construct(array $attributes = []) {
+		parent::__construct($attributes);
+
+		$this->actions = \Illuminate\Database\Eloquent\Collection::make();
+	}
+
+	/**
 	 * store an mass assignment array to the model properties. if validator rules are defined, the
 	 * properties will be checked before saving them to database
 	 *
@@ -52,5 +71,14 @@ class Universe extends \Illuminate\Database\Eloquent\Model {
 	 */
 	public function errors() {
 		return $this->errors;
+	}
+
+	/**
+	 * returns the action collection that assign to this model
+	 *
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function getActionsAttribute() {
+		return $this->actions;
 	}
 }

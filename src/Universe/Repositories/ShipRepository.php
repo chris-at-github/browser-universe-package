@@ -12,7 +12,7 @@ class ShipRepository extends UniverseRepository {
 		$ship = \App::make('\Universe\Models\Ship');
 		$ship->fill([
 			'id'   => 1,
-			'name' => 'Ship A1',
+			'name' => 'Mule',
 			'x'    => 1,
 			'y'    => 1
 		]);

@@ -26,4 +26,8 @@ class PlanetController extends UniverseController {
 
 		return \Redirect::route('game.playground', ['id' => $request->session()->get('game.id')]);
 	}
+
+	public function settle($id) {
+
+	}
 }
