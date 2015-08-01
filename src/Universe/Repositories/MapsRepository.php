@@ -13,8 +13,8 @@ class MapsRepository extends UniverseRepository {
 		$map->fill([
 			'id'      => 1,
 			'name'    => 'Map A1',
-			'width'   => 3,
-			'height'  => 3
+			'width'   => 40,
+			'height'  => 10
 		]);
 		$this->fixtures->put('MAP_A1', $map);
 	}

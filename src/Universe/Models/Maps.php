@@ -19,8 +19,7 @@ class Maps extends Universe {
 	 * @return int
 	 */
 	public function getCalculatedWidth() {
-//		\Config::get('universe.map.gutter')
-		return 100;
+		return \Config::get('universe.map.gutter') * $this->width;
 	}
 
 	/**
@@ -29,6 +28,6 @@ class Maps extends Universe {
 	 * @return int
 	 */
 	public function getCalculatedHeight() {
-		return 100;
+		return \Config::get('universe.map.gutter') * $this->height;
 	}
 }
