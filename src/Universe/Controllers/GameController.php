@@ -6,7 +6,21 @@ class GameController extends UniverseController {
 			->with('games', \App::make('\Universe\Repositories\GameRepository')->findAll());
 	}
 
+	/**
+	 * stellt eine Oberflaeche zur Erstellung eines neuen Spiels zur Verfuegung
+	 *
+	 * @return \Illuminate\Contracts\View\View
+	 */
 	public function create() {
+		return \View::make('Universe::Game.Create');
+	}
+
+	/**
+	 * Speichert einen Spielstand
+	 *
+	 * @return mixed
+	 */
+	public function save() {
 		$game = \App::make('\Universe\Models\Game');
 		$game->store();
 
